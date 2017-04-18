@@ -72,7 +72,9 @@ class RollbarPlugin extends BasePlugin
 
         // Log Craft Exceptions to Rollbar
         craft()->onException = function ($event) {
-            \Rollbar::report_exception($event->exception);
+            if ($event->exception->statusCode !== 404) {
+                \Rollbar::report_exception($event->exception);
+            }
         };
 
         // Log Craft Errors to Rollbar
