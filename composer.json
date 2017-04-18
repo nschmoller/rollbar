@@ -1,11 +1,15 @@
 {
-    "name": "boboldehampsink/rollbar",
+    "name": "nschmoller/rollbar",
     "description": "Rollbar Plugin for Craft CMS",
     "authors": [
 		{
 			"name": "Bob Olde Hampsink",
 			"email": "b.oldehampsink@itmundi.nl"
-		}
+		},
+    {
+      "name": "Niek Schmoller",
+      "email": "n.schmoller@nerds.company"
+    }
 	],
     "type": "craft-plugin",
     "require": {
