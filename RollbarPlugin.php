@@ -33,7 +33,7 @@ class RollbarPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.5.0';
+        return '1.5.1';
     }
 
     /**
@@ -57,13 +57,23 @@ class RollbarPlugin extends BasePlugin
     }
 
     /**
-     * Initialize Rollbar.
+     * Initializes Plugin.
      */
     public function init()
     {
         // Require Rollbar vendor code
         require_once __DIR__.'/vendor/autoload.php';
 
+        if (craft()->config->get('rollbarEnabled')) {
+            $this->initializeRollbar();
+        }
+    }
+
+    /**
+     * Initialize Rollbar.
+     */
+    public function initializeRollbar()
+    {
         // Initialize Rollbar
         \Rollbar::init(array(
             'access_token' => craft()->config->get('accessToken', 'rollbar'),
